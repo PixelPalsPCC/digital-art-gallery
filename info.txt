@@ -1,0 +1,101 @@
+
+HTML
+    colors
+
+
+
+JavaScript
+
+
+variables
+    let
+    const
+    var
+
+
+
+data types
+    string
+    number
+    float
+    array
+    object
+    boolean
+
+function
+
+parameter
+
+flow of execution
+
+conditions
+
+
+
+
+
+
+p5.js Library functions
+    **CORE**
+    setup
+    draw
+    createCanvas
+    background
+
+    **POPULAR**
+    strokeWeight
+    point
+    ellipse
+    random
+    vertex
+    noStroke
+    stroke
+    line
+    fill
+    triangle
+    
+    **USEFUL**
+    print    
+    loop
+    frameRate
+    frameCount
+    redraw    
+    shuffle
+    
+    **PRESENT**
+    circle
+    square
+    rect        
+    beginShape
+    endShape   
+    rectMode
+    second
+    translate
+    rotate
+    push
+    width
+    height
+    CENTER
+    pop    
+    map
+    text
+    textAlign
+    textSize
+    mouseX
+    mousey
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
