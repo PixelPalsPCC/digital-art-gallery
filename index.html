@@ -17,9 +17,6 @@
     <div class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }'>
     </div>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            document.getElementsByClassName
-        });
         (async () => {
             const response = await fetch('https://api.github.com/repos/georgemck/digital-art-gallery/contents');
             const data = await response.json();
@@ -53,7 +50,8 @@
                 // successMessage is whatever we passed in the resolve(...) function above.
                 // It doesn't have to be a string, but if it is only a succeed message, it probably will be.
                 console.log(`Yay! ${successMessage}`);
-                // vanilla JS
+                
+                // vanilla JS https://masonry.desandro.com/options
                 // init with element
                 var grid = document.querySelector('.grid');
                 var msnry = new Masonry(grid, {
