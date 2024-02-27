@@ -30,24 +30,16 @@
                 }
                 // htmlString += `<li><a href="${file.path}">${file.name}</a></li>`;
             }
-            let shuffled = imgArray
-                .map(value => ({ 
-                    value,
-                    sort: Math.random()
-                }))
-                .sort((a, b) => a.sort - b.sort)
-                .map(({
-                    value
-                }) => value);
-                function getShuffledArr (arr){
-                    return [...arr].map( (_, i, arrCopy) => {
-                        var rand = i + ( Math.floor( Math.random() * (arrCopy.length - i) ) );
-                        [arrCopy[rand], arrCopy[i]] = [arrCopy[i], arrCopy[rand]]
-                        return arrCopy[i]
-                    })
-                }
-                let newaRRAY  = getShuffledArr(imgArray);
-                newaRRAY.forEach(function (v, i, a) {
+
+            function getShuffledArr(arr) {
+                return [...arr].map((_, i, arrCopy) => {
+                    var rand = i + (Math.floor(Math.random() * (arrCopy.length - i)));
+                    [arrCopy[rand], arrCopy[i]] = [arrCopy[i], arrCopy[rand]]
+                    return arrCopy[i]
+                })
+            }
+            let randomArray = getShuffledArr(imgArray);
+            randomArray.forEach(function (v, i, a) {
                 gridDivString += `<div class="grid-item"><img src="${v}"></div>`;
             });
 
