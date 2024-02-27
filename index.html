@@ -3,66 +3,65 @@
 <html>
 
 <head>
-    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
-    <!-- or -->
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <style>
+        html {
+            overflow-y: scroll;
+        }
+
+        .grid { margin-left: 6%; }
+    </style>
 </head>
 
 <body>
     <div class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }'>
-        <div class="grid-item"><img src="1.png" alt="Night Shift" /></div>
-        <div class="grid-item"><img src="2.png" alt="Night Shift" /></div>
-        <div class="grid-item"><img src="3.png" alt="Night Shift" /></div>
-        <div class="grid-item"><img src="4.png" alt="Night Shift" /></div>
-        <div class="grid-item"><img src="5.png" alt="Night Shift" /></div>
-        <div class="grid-item"><img src="6.png" alt="Night Shift" /></div>
-        <div class="grid-item"><img src="7.png" alt="Night Shift" /></div>
-        <div class="grid-item"><img src="9.png" alt="Night Shift" /></div>
-        <div class="grid-item"><img src="10.png" alt="Night Shift" /></div>
-        <div class="grid-item"><img src="11.png" alt="Night Shift" /></div>
-        <div class="grid-item"><img src="12.png" alt="Night Shift" /></div>
-        <div class="grid-item"><img src="13.png" alt="Night Shift" /></div>
-        <div class="grid-item"><img src="14.png" alt="Night Shift" /></div>
-        <div class="grid-item"><img src="15.png" alt="Night Shift" /></div>
-        <div class="grid-item"><img src="8.png" alt="Night Shift" /></div>
     </div>
     <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementsByClassName
+        });
         (async () => {
             const response = await fetch('https://api.github.com/repos/georgemck/digital-art-gallery/contents');
             const data = await response.json();
+
             let htmlString = '<ul>';
             let gridDivString = '';
 
             for (let file of data) {
-
-                // <div class="grid-item"><img src="11.png" alt="Night Shift" /></div>
                 if (file.name.search(".png") !== -1) {
-                    gridDivString += `<div class="grid-item"><img src="${file.path}">${file.name} /></div>`;
-
+                    gridDivString += `<div class="grid-item"><img src="${file.path}"></div>`;
                 }
-                //                htmlString += `<li><a href="${file.path}">${file.name}</a></li>`;
+                // htmlString += `<li><a href="${file.path}">${file.name}</a></li>`;
             }
 
             // htmlString += '</ul>';
             // document.getElementsByTagName('body')[0].innerHTML = htmlString;
-
-
-
             console.log(gridDivString);
+            document.getElementsByClassName("grid")[0].innerHTML = gridDivString;
 
 
-            // vanilla JS
-            // init with element
-            var grid = document.querySelector('.grid');
-            var msnry = new Masonry(grid, {
-                // options...
-                itemSelector: '.grid-item',
-                columnWidth: 200
+            const myFirstPromise = new Promise((resolve, reject) => {
+                // We call resolve(...) when what we were doing asynchronously was successful, and reject(...) when it failed.
+                // In this example, we use setTimeout(...) to simulate async code.
+                // In reality, you will probably be using something like XHR or an HTML API.
+                setTimeout(() => {
+                    resolve("Success!"); // Yay! Everything went well!
+                }, 250);
             });
 
-            // init with selector
-            var msnry = new Masonry('.grid', {
-                // options...
+            myFirstPromise.then((successMessage) => {
+                // successMessage is whatever we passed in the resolve(...) function above.
+                // It doesn't have to be a string, but if it is only a succeed message, it probably will be.
+                console.log(`Yay! ${successMessage}`);
+                // vanilla JS
+                // init with element
+                var grid = document.querySelector('.grid');
+                var msnry = new Masonry(grid, {
+                    // options...
+                    itemSelector: '.grid-item',
+                    columnWidth: 200
+                });
+
             });
 
 
